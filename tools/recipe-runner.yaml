@@ -1,0 +1,25 @@
+name: recipe-runner
+description: Discovers, executes, and tests specific ADK recipe templates across Python and TypeScript runtimes.
+input_schema:
+  type: object
+  properties:
+    recipe_path:
+      type: string
+      description: Relative or absolute directory path to the target recipe.
+    action:
+      type: string
+      enum:
+        - run
+        - test
+        - lint
+      description: Execution action to perform on the recipe.
+    runtime_env:
+      type: string
+      enum:
+        - python
+        - typescript
+        - go
+      description: Programming runtime environment.
+  required:
+    - recipe_path
+    - action

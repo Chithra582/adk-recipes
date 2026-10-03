@@ -1,0 +1,21 @@
+name: session-state-manager
+description: Manages multi-turn conversation states, session memory checkpoints, and persistence backends.
+input_schema:
+  type: object
+  properties:
+    session_id:
+      type: string
+      description: Unique identifier of the conversation session.
+    operation:
+      type: string
+      enum:
+        - get_state
+        - save_checkpoint
+        - clear_session
+      description: State operation to perform.
+    state_payload:
+      type: object
+      description: JSON payload to persist when saving checkpoint.
+  required:
+    - session_id
+    - operation

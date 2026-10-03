@@ -1,0 +1,13 @@
+name: recipe-manifest-validator
+description: Validates recipe metadata, manifest schemas, and structural directory placements against ADK specifications.
+input_schema:
+  type: object
+  properties:
+    target_dir:
+      type: string
+      description: Directory of the recipe to validate.
+    strict_mode:
+      type: boolean
+      description: Enforce strict schema compliance without deprecation warnings.
+  required:
+    - target_dir

@@ -1,0 +1,26 @@
+name: guardrail-policy-checker
+description: Evaluates agent inputs, outputs, and proposed tool actions against configured safety guardrail policies.
+input_schema:
+  type: object
+  properties:
+    content:
+      type: string
+      description: Text or structured content to evaluate.
+    policy_tier:
+      type: string
+      enum:
+        - standard
+        - strict
+        - enterprise_regulated
+      description: Safety threshold tier to enforce.
+    target_type:
+      type: string
+      enum:
+        - user_input
+        - agent_response
+        - tool_arguments
+      description: Type of content payload under evaluation.
+  required:
+    - content
+    - policy_tier
+    - target_type
